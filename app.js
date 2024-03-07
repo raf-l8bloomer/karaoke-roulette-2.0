@@ -75,7 +75,6 @@ function generateRandomId() {
 function randomPrompt(arr) {
   let randomPromptIndex = Math.floor(Math.random() * arr.length);
   currentPrompt = arr[randomPromptIndex];
-  console.log(currentPrompt);
 }
 
 // removes displayed prompt nad nullifies currentPrompt
@@ -107,7 +106,6 @@ function removePrompt(arr, prompt) {
   //save bank to localStorage
   let saveBankString = JSON.stringify(arr);
   localStorage.setItem("bank", saveBankString);
-  console.log(saveBankString);
 }
 
 function clearBankLI() {
@@ -143,7 +141,6 @@ function createLi(prompt) {
       //save bank  with removed prompt to localStorage
       savedBankString = JSON.stringify(newPromptBank);
       localStorage.setItem("bank", savedBankString);
-      console.log(newPromptBank);
     } else {
       // if user removes prompts from the initial bank BEFORE adding or spinning, this edits the initial bank.
       const promptIndex = promptBank.findIndex(
@@ -172,15 +169,10 @@ spinEl.addEventListener("click", () => {
 
   } else {
     if (savedBankString != null && savedBankString != "") {
-      console.log(newPromptBank);
       randomPrompt(newPromptBank);
-      console.log(currentPrompt);
-      console.log("spun new prompt bank");
     } else {
       newPromptBank.push(...promptBank);
-      console.log(newPromptBank);
       randomPrompt(newPromptBank);
-      console.log("spun OLD prompt bank");
     }
     generatePrompt();
     savedBankString = JSON.stringify(newPromptBank);
@@ -217,14 +209,12 @@ form?.addEventListener("submit", (e) => {
 
   // add the new prompt to the old promptBank
   newPromptBank.push(newPrompt);
-  console.log(newPromptBank);
   toggleCompleteBtn();
   // add prompt to the list rendered in prompt bank
   createLi(newPrompt);
 
   // turn new bank with added input to string
   savedBankString = JSON.stringify(newPromptBank);
-  console.log(savedBankString);
 
   // save new bank
   localStorage.setItem("bank", savedBankString);
@@ -256,7 +246,6 @@ resetBank.addEventListener("click", () => {
   newPromptBank = [];
   promptBank = [];
   toggleCompleteBtn();
-  console.log(newPromptBank);
 });
 
 /*************

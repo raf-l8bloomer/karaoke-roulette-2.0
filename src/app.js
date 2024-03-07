@@ -1,16 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-// import _ from 'lodash'
 
-// function component() {
-//   const element = document.createElement('div');
-
-//   // Lodash, currently included via a script, is required for this line to work
-//   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-//   return element;
-// }
-
-// document.body.appendChild(component());
 
 /*************
  * VARIABLES
@@ -207,22 +196,20 @@ if (savedBankString != null && savedBankString != "") {
   renderBank(promptBank);
 }
 
-// let chrome: any;
-// let tab: any;
-// let info: any;
 
-// chrome.runtime.onInstalled.addListener(() => {
-//   chrome.contextMenus.create({
-//     id: 'openSidePanel',
-//     title: 'Open side panel',
-//     contexts: ['all']
-//   });
-// });
 
-// chrome.contextMenus.onClicked.addListener((info: any, tab: any) => {
-//   if (info.menuItemId === 'openSidePanel') {
-//     // This will open the panel in all the pages on the current window.
-//     chrome.sidePanel.open({ windowId: tab.windowId });
-//   }
-// });
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: 'openSidePanel',
+    title: 'Open side panel',
+    contexts: ['all']
+  });
+});
+
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === 'openSidePanel') {
+    // This will open the panel in all the pages on the current window.
+    chrome.sidePanel.open({ windowId: tab.windowId });
+  }
+});
 

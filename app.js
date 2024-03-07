@@ -260,7 +260,7 @@ resetBank.addEventListener("click", () => {
 });
 
 /*************
- * FUNCTION CALL
+ * INITAL FUNCTION CALLS
  ************/
 
 // render saved bank upon load
@@ -273,6 +273,10 @@ if (savedBankString != null && savedBankString != "") {
   renderBank(promptBank);
 }
 
+if (showBank.textContent == "Show Prompt Bank") {
+  bank.style.display = "none";
+}
+
 function toggleCompleteBtn() {
   if (newPromptBank.length == 0 && promptBank.length == 0) {
     completeEl.disabled = true;
@@ -280,6 +284,8 @@ function toggleCompleteBtn() {
     completeEl.disabled = false;
   }
 }
+
+
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
@@ -295,3 +301,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     chrome.sidePanel.open({ windowId: tab.windowId });
   }
 });
+
+
+// Need to style reset button!

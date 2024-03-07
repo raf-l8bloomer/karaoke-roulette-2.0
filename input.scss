@@ -162,7 +162,18 @@
   }
   
   .bank {
-    display: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reset-bank {
+    border: 1px solid red;
+    background-color: white;
+    border-radius: $border-radius;
+  }
+
+  .reset-bank:hover{
+    background-color: red;
   }
   
   .removePrompt {
@@ -219,6 +230,15 @@
   
     .show-bank {
       height: 40%;
+    }
+
+    .bank {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .reset-bank {
+      margin-left: auto;
     }
   }
   

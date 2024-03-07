@@ -144,7 +144,18 @@ input::placeholder {
 }
 
 .bank {
-  display: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.reset-bank {
+  border: 1px solid red;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.reset-bank:hover {
+  background-color: red;
 }
 
 .removePrompt {
@@ -194,6 +205,13 @@ li {
   }
   .show-bank {
     height: 40%;
+  }
+  .bank {
+    display: flex;
+    flex-direction: row;
+  }
+  .reset-bank {
+    margin-left: auto;
   }
 }
 

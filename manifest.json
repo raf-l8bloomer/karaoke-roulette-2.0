@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Karaoke Roulette",
     "version": "2.0.0",
-    "description": "Open side panel next to your profile icon on the right of your extensions. Change your bookmarks to 'Karaoke Roulette.' Spin the roulette and select a song that pairs well with the prompt. Add new prompts or remove them from the Prompt Bank. Hit 'complete' when you're done and keep on singing! ",
+    "description": "Spin the roulette and select a song that pairs well with the prompt. Add new prompts, remove them, or hit 'complete' when you're done and keep on singing! ",
     "author": "L8BLoomer Studio",
     "permissions": [
         "sidePanel"

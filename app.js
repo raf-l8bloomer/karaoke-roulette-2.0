@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 
 /*************
  * VARIABLES
@@ -20,43 +18,50 @@ let currentPrompt
 
 // preloaded prompts
 const promptBank = [
-  { id: uuidv4(), theme: "You want a '4 Chair Turn' on The Voice" },
+  { id: generateRandomId(), theme: "You want a '4 Chair Turn' on The Voice" },
   {
-    id: uuidv4(),
+    id: generateRandomId(),
     theme: "You have to poop but there's 12 other people in the next room",
   },
-  { id: uuidv4(), theme: "You've been chosen as tribute for The Hunger Games" },
-  { id: uuidv4(), theme: 'Revenge Era' },
-  { id: uuidv4(), theme: 'The last cigarette in the box' },
-  { id: uuidv4(), theme: 'Stuck in an elevator with your crush' },
-  { id: uuidv4(), theme: "You've just discovered electricity" },
+  { id: generateRandomId(), theme: "You've been chosen as tribute for The Hunger Games" },
+  { id: generateRandomId(), theme: 'Revenge Era' },
+  { id: generateRandomId(), theme: 'The last cigarette in the box' },
+  { id: generateRandomId(), theme: 'Stuck in an elevator with your crush' },
+  { id: generateRandomId(), theme: "You've just discovered electricity" },
   {
-    id: uuidv4(),
+    id: generateRandomId(),
     theme:
       'Finding the perfect meme for the groupchat before someone else replies',
   },
-  { id: uuidv4(), theme: 'Voicemail song' },
-  { id: uuidv4(), theme: 'Empty parking lot acoustics' },
+  { id: generateRandomId(), theme: 'Voicemail song' },
+  { id: generateRandomId(), theme: 'Empty parking lot acoustics' },
   {
-    id: uuidv4(),
+    id: generateRandomId(),
     theme: "You're looking out the window and it's pouring rain",
   },
-  { id: uuidv4(), theme: 'Just sent a risky text' },
-  { id: uuidv4(), theme: 'Heartbreak feels good in a place like this' },
-  { id: uuidv4(), theme: 'Love at first sight' },
+  { id: generateRandomId(), theme: 'Just sent a risky text' },
+  { id: generateRandomId(), theme: 'Heartbreak feels good in a place like this' },
+  { id: generateRandomId(), theme: 'Love at first sight' },
   {
-    id: uuidv4(),
+    id: generateRandomId(),
     theme: 'We saw you from across the bar and we really like your vibe',
   },
-  { id: uuidv4(), theme: 'Where were you on January 6th?' },
-  { id: uuidv4(), theme: 'Trina! A One Woman Show, ft. Chicago' },
-  { id: uuidv4(), theme: 'The edible is hitting' },
-  { id: uuidv4(), theme: 'I work like a dog DAY AND NIGHT' },
+  { id: generateRandomId(), theme: 'Where were you on January 6th?' },
+  { id: generateRandomId(), theme: 'Trina! A One Woman Show, ft. Chicago' },
+  { id: generateRandomId(), theme: 'The edible is hitting' },
+  { id: generateRandomId(), theme: 'I work like a dog DAY AND NIGHT' },
 ];
 
 /*************
  * FUNCTIONS
  ************/
+
+function generateRandomId() {
+  const timestamp = Date.now().toString(36); // Convert current timestamp to base36 string
+  const randomStr = Math.random().toString(36).substring(2); // Generate random string and remove '0.' prefix
+
+  return timestamp + randomStr; // Concatenate timestamp and random string
+}
 
 // sets random currentPrompt from PromptBank
 function randomPrompt(arr) {
@@ -86,6 +91,10 @@ function removePrompt(arr, prompt) {
   localStorage.setItem('bank', saveBankString);
   console.log(saveBankString);
 }
+
+// function clearBank(){
+
+// }
 
 // render promptBank to HTML
 function renderBank(arr) {
@@ -141,6 +150,9 @@ completeEl?.addEventListener('click', () => {
     removePrompt(promptBank, currentPrompt);
   }
   clearPrompt();
+  let saveBankString = JSON.stringify(promptBank);
+  localStorage.setItem('bank', saveBankString);
+  console.log(saveBankString);
   randomPrompt(promptBank);
   generatePrompt();
 });
@@ -152,7 +164,7 @@ form?.addEventListener('submit', (e) => {
   if (submitInput?.value == '' || submitInput?.value == null) return;
 
   const newPrompt = {
-    id: uuidv4(),
+    id: generateRandomId(),
     theme: submitInput.value,
   };
 

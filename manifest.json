@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Karaoke Roulette",
     "version": "2.0.0",
-    "description": "Add new prompts, remove them, sping the roulette and sing!",
+    "description": "Add new prompts, remove them, spin the roulette and sing!",
     "author": "L8BLoomer Studio",
     "icons": {
         "16": "assets/karaoke-roulette-icon-16x16.png",

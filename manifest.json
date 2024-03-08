@@ -4,6 +4,12 @@
     "version": "2.0.0",
     "description": "Spin the roulette and select a song that pairs well with the prompt. Add new prompts, remove them, or hit 'complete' when you're done and keep on singing! ",
     "author": "L8BLoomer Studio",
+    "icons": {
+        "16": "assets/karaoke-roulette-icon-16x16.png",
+        "32": "assets/karaoke-roulette-icon-32x32.png",
+        "48": "assets/karaoke-roulette-icon-48x48.png",
+        "128": "assets/karaoke-roulette-icon-128x128.png"
+      },
     "permissions": [
         "sidePanel"
     ],
